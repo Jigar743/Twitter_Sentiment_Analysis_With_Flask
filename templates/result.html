@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>Twitter Sentiment Analysis</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <link rel="stylesheet" href="../static/result.css" />
+  </head>
+  <script>
+    tweetData = JSON.parse(`{{ result | tojson | safe }}`);
+    console.log(tweetData);
+
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["behaviour", "count percentages"],
+        ["Positive", tweetData.pos],
+        ["Negative", tweetData.neg],
+        ["Neutral", tweetData.nuet],
+      ]);
+
+      var options = {
+        title: "Pie Chart",
+        is3D: false,
+      };
+
+      document.getElementById("basic-url").value = tweetData.your_topic;
+
+      var chart = new google.visualization.PieChart(
+        document.getElementById("piechart_3d")
+      );
+      chart.draw(data, options);
+    }
+  </script>
+  <body>
+    <div class="container">
+      <h1 class="text-center display-4">Twitter Sentiment Analysis</h1>
+      <br /><br />
+      <form>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text hashtag-icon" id="analyzeText"
+              >#</span
+            >
+          </div>
+          <input
+            type="text"
+            value=""
+            id="basic-url"
+            class="form-control hashtag"
+            readonly
+          />
+        </div>
+      </form>
+    </div>
+    <div
+      class="text-center piechart_3d"
+      id="piechart_3d"
+      style="width: 900px; height: 500px"
+    ></div>
+  </body>
+</html>

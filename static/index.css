@@ -1,0 +1,20 @@
+body {
+  background-image: url(./Twitter-Dark-Mode.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body .container > h1 {
+  color: ivory;
+}
+
+input {
+  width: 100px;
+  display: block;
+  height: 50px;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+   <title>
+      Twitter Sentiment Analysis
+   </title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+      <link rel="stylesheet" href="../static/index.css" />
+</head>
+
+<body>
+   <div class="container ml-5">
+      <h1 class="text-center display-4" style="color: ivory;">Twitter Sentiment Analysis</h1>
+      <br /><br />
+      <form action="http://127.0.0.1:5000/sendtopic" method="POST">
+         <div class="input-group mb-3">
+            <div class="input-group-prepend">
+               <span class="input-group-text hashtag-icon" id="analyzeText">#</span>
+            </div>
+            <input class="form-control hashtag" name="nm" id="basic-url" aria-describedby="analyzeText" type="text"
+               placeholder="Enter Hashtag to analyze" />
+         </div>
+         <div class="text-center">
+            <button class="btn btn-primary" type="submit">Analyze</button>
+         </div>
+      </form>
+   </div>
+</body>
+
+</html>
